@@ -1,0 +1,12 @@
+{
+    "Name": "logistics-crawler",
+    "Role": "<GLUE_SERVICE_ROLE>",
+    "DatabaseName": "logistics_db",
+    "Targets": {
+        "S3Targets": [
+            {
+                "Path": "s3://logistics-raw/input_data/"
+            }
+        ]
+    }
+}

@@ -1,0 +1,5 @@
+### IAM Roles Required ###
+1. AWSGlueServiceRole: Full access to Glue services.
+2. AWSLambdaBasicExecutionRole: Basic Lambda execution permissions.
+3. AmazonS3FullAccess: Full access to S3 buckets.
+4. StepFunctionsExecutionRole: Permissions to execute Step Functions state machines.

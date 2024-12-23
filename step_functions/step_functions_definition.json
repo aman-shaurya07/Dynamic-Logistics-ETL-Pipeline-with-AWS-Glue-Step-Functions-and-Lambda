@@ -1,0 +1,26 @@
+{
+    "StartAt": "RunGlueCrawler",
+    "States": {
+        "RunGlueCrawler": {
+            "Type": "Task",
+            "Resource": "arn:aws:states:::glue:startCrawler",
+            "Parameters": {
+                "Name": "logistics-crawler"
+            },
+            "Next": "RunGlueJob"
+        },
+        "RunGlueJob": {
+            "Type": "Task",
+            "Resource": "arn:aws:states:::glue:startJobRun.sync",
+            "Parameters": {
+                "JobName": "logistics-etl-job"
+            },
+            "Next": "ArchiveFiles"
+        },
+        "ArchiveFiles": {
+            "Type": "Task",
+            "Resource": "arn:aws:lambda:<region>:<account_id>:function:logistics-archive-files",
+            "End": true
+        }
+    }
+}
